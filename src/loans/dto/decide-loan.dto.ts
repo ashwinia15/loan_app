@@ -1,22 +1,10 @@
 import { IsEnum, IsOptional, IsString } from "class-validator";
-import { LoanStatus } from "../entities/loan.entity.js";
+import { LoanStatus } from "../constants.ts/enums/loan.enums.js";
 
 export class DecideLoanDto {
     @IsEnum(LoanStatus)
-    remarks: string;
+    status: LoanStatus;
 
     @IsOptional() @IsString()
-    status: string;
-}
-
-export class Loan {
-  id: string;
-  userId: string;
-  amount: number;
-  tenureMonths: number;
-  purpose: string;
-  status: LoanStatus;
-  decisionBy?: string;
-  remarks?: string;
-  createdAt: Date;
+    remarks: string;
 }
